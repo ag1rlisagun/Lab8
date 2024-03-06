@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CustomList extends ArrayAdapter<City> {
 
@@ -64,7 +65,12 @@ public class CustomList extends ArrayAdapter<City> {
     }
 
     public boolean hasCity(City city) {
-
+        for (City city1 : cities) {
+            if (Objects.equals(city.getCityName(), city1.getCityName()) && Objects.equals(city.getProvinceName(), city1.getProvinceName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
